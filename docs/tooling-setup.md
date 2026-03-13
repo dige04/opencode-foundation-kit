@@ -86,8 +86,8 @@ The root `opencode.json` already expects:
 
 ```json
 "beads-village": {
-  "command": "npx",
-  "args": ["beads-village"]
+  "type": "local",
+  "command": ["npx", "beads-village"]
 }
 ```
 
@@ -121,8 +121,8 @@ The root `opencode.json` already expects:
 
 ```json
 "tilth": {
-  "command": "tilth",
-  "args": ["--mcp", "--edit"]
+  "type": "local",
+  "command": ["tilth", "--mcp", "--edit"]
 }
 ```
 
@@ -134,8 +134,8 @@ The root `opencode.json` already includes:
 
 ```json
 "linear": {
-  "command": "npx",
-  "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+  "type": "local",
+  "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"]
 }
 ```
 
@@ -150,8 +150,8 @@ The root `opencode.json` already includes:
 
 ```json
 "notebooklm": {
-  "command": "npx",
-  "args": ["-y", "notebooklm-mcp@latest"]
+  "type": "local",
+  "command": ["npx", "-y", "notebooklm-mcp@latest"]
 }
 ```
 

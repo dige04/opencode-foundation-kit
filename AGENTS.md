@@ -13,9 +13,10 @@ starter.
 4. `docs/tilth-integration.md`
 5. `docs/agent-hive-standard.md`
 6. `docs/integration-model.md`
-7. `docs/code-standards.md`
-8. `docs/codebase-summary.md`
-9. relevant pod files under `pods/`
+7. `docs/team-guardrails.md`
+8. `docs/code-standards.md`
+9. `docs/codebase-summary.md`
+10. relevant pod files under `pods/`
 
 ## Primary Model
 
@@ -34,6 +35,7 @@ starter.
 - use `docs/beads-village-integration.md` for locking and messaging rules
 - use `docs/agent-hive-standard.md` for planning, approval, and execution flow
 - use `docs/tilth-integration.md` for code navigation and impact analysis rules
+- use `docs/team-guardrails.md` for team-safe operating rules
 - use NotebookLM for retrieval, not durable memory
 - promote stable knowledge into `docs/` or pod files
 

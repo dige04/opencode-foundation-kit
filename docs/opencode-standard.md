@@ -53,6 +53,7 @@ NotebookLM MCP   Linear MCP   Tilth MCP   Beads Village MCP
 - `docs/beads-village-integration.md`
 - `docs/tilth-integration.md`
 - `docs/agent-hive-standard.md`
+- `docs/team-guardrails.md`
 - `docs/integration-model.md`
 - `docs/code-standards.md`
 

@@ -12,6 +12,7 @@ cross-tool compatible docs and process scaffolding.
 - `docs/beads-village-integration.md` defines the coordination layer on top of
   Beads core
 - `docs/tilth-integration.md` defines the code-perception layer
+- `docs/team-guardrails.md` defines team-safe operating rules for shared use
 - `docs/team-stack-pattern.md` summarizes the combined OpenCode + Hive + Beads +
   Beads Village + Tilth model
 - `docs/opencode-agents/` holds OpenCode role specs

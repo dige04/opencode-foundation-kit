@@ -302,6 +302,17 @@ Only auth reminders for `Linear` and `NotebookLM` should remain.
 - Each layer owns **one** thing: runtime, orchestration, memory, coordination,
   or perception
 
+## Team Non-Negotiables
+
+- claim in `Beads` before implementation
+- reserve shared files in `Beads Village` before editing
+- release reservations or `done` when finishing work
+- require Hive approval for non-trivial work
+- never treat messages or reservations as durable memory
+- keep MCP auth local and uncommitted
+
+For the full team operating rules, use `docs/team-guardrails.md`.
+
 ---
 
 ## After Clone

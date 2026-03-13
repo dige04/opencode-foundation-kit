@@ -29,8 +29,8 @@ The root `opencode.json` includes Beads Village natively:
 
 ```json
 "beads-village": {
-  "command": "npx",
-  "args": ["beads-village"]
+  "type": "local",
+  "command": ["npx", "beads-village"]
 }
 ```
 
