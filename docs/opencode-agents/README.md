@@ -9,6 +9,12 @@ Each spec should include:
 - guardrails
 - verify
 
+The specs in this starter assume:
+- Beads-first execution by default
+- optional Hive planning for feature-sized work
+- NotebookLM retrieval only
+- durable promotion into `docs/` or pod files
+
 Core set:
 - `docs-manager.md`
 - `planner.md`

@@ -10,6 +10,8 @@ starter repository.
 - keep the root `opencode.json` minimal by default
 - keep richer setup in optional example configs
 - use OpenCode in a way that preserves the Hive lifecycle
+- keep Beads as the default engineering execution layer when the team uses task
+  graphs
 - treat NotebookLM as retrieval only
 - promote durable guidance into `docs/` or pod files
 
@@ -43,6 +45,13 @@ Linear / Figma / NotebookLM
 - workflow memory: `Hive` and Beads task state
 - durable project memory: `docs/` and `pods/`
 
+## Related Standards
+
+- `docs/beads-standard.md`
+- `docs/agent-hive-standard.md`
+- `docs/integration-model.md`
+- `docs/code-standards.md`
+
 ## Builder Setup Pattern
 
 1. install and launch OpenCode
@@ -50,3 +59,4 @@ Linear / Figma / NotebookLM
 3. adapt from `examples/opencode/opencode.foundation.jsonc` only if richer
    setup is needed
 4. load the agent specs in `docs/opencode-agents/` as role contracts
+5. initialize Beads if your team uses Beads-first execution
