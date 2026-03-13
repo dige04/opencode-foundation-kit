@@ -2,13 +2,14 @@
 
 ## Purpose
 
-This document explains how to add `Tilth` to the OpenCode foundation starter as
-an optional code-perception layer.
+This document explains how `Tilth` fits into the native OpenCode foundation
+stack as the code-perception layer.
 
 Tilth complements the existing stack:
 - `OpenCode` stays the runtime and coding-agent environment
-- `Hive` stays the orchestration layer when plan-first work is needed
+- `Hive` stays the orchestration layer
 - `Beads` stays the engineering execution memory layer
+- `Beads Village` stays the coordination layer
 - `Tilth` improves code reading, definition lookup, callers/callees tracing, and
   large-file navigation
 
@@ -22,13 +23,14 @@ Based on the upstream `jahala/tilth` project, the most useful additions are:
 - session dedup for repeated symbol reads in MCP mode
 - optional hash-anchored edit mode with `--edit`
 
-## When To Use It
+## Role In The Stack
 
-Use Tilth when:
-- the codebase is large enough that repeated `read` / `grep` loops waste time
-- the team wants better symbol navigation in one call
-- smaller models need stronger structure for code perception
-- review and impact analysis need callers/callees context
+Tilth is the native code-perception layer in this starter. Use it for:
+- structural file reading
+- definition-first search
+- callee and callers tracing
+- impact analysis before edits or review
+- hash-anchored edit flows when appropriate
 
 Do not treat Tilth as:
 - persistent memory
@@ -51,41 +53,30 @@ npx tilth
 
 ## OpenCode Integration Paths
 
-### User-scope install
+The root `opencode.json` already expects Tilth natively through:
 
-Tilth supports writing directly to the OpenCode user config:
-
-```bash
-tilth install opencode
+```json
+"tilth": {
+  "command": "tilth",
+  "args": ["--mcp", "--edit"]
+}
 ```
 
-Enable hash-anchored edit mode:
-
-```bash
-tilth install opencode --edit
-```
-
-The upstream project writes this at user scope in `~/.opencode.json`, making it
-available across all projects.
-
-### Project-scope example
-
-This starter keeps the root `opencode.json` minimal on purpose.
-
-If you want a project-level example instead, use:
-- `examples/opencode/opencode.tilth.jsonc`
+Reference configs live in:
 - `examples/opencode/opencode.foundation.jsonc`
+- `examples/opencode/opencode.team-stack.jsonc`
 
 ## Guardrails
 
-- keep Tilth optional by default
-- do not replace the minimal root `opencode.json`
-- do not present Tilth as a substitute for Hive or Beads
-- do not assume every builder has Rust or Cargo installed
+- do not present Tilth as a substitute for Hive, Beads, or Beads Village
+- do not use Tilth as memory or orchestration
+- do not assume every builder has Rust installed; document `npm` fallback when
+  needed
 
 ## References
 
 - `https://github.com/jahala/tilth`
 - `docs/opencode-standard.md`
 - `docs/beads-standard.md`
+- `docs/beads-village-integration.md`
 - `docs/agent-hive-standard.md`

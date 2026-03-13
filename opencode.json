@@ -1,4 +1,22 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-hive"]
+  "plugin": ["opencode-hive"],
+  "mcpServers": {
+    "beads-village": {
+      "command": "npx",
+      "args": ["beads-village"]
+    },
+    "tilth": {
+      "command": "tilth",
+      "args": ["--mcp", "--edit"]
+    },
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+    },
+    "notebooklm": {
+      "command": "npx",
+      "args": ["-y", "notebooklm-mcp@latest"]
+    }
+  }
 }

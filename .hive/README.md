@@ -1,6 +1,6 @@
 # Hive
 
-This directory is reserved for optional plan-first Hive workflow artifacts.
+This directory is reserved for plan-first Hive workflow artifacts.
 
 Use `.hive/` when the team wants:
 - explicit feature plans in the repo
@@ -12,4 +12,4 @@ Templates live in:
 - `.hive/templates/task-spec.md`
 - `.hive/templates/task-report.md`
 
-If the team is happy with a pure Beads-first flow, `.hive/` can stay light.
+Keep `.hive/` aligned with the Beads graph and the approved execution flow.

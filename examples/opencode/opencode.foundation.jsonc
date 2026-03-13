@@ -1,19 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  
-  // Optional richer profile for teams using this public starter.
-  // Keep the root `opencode.json` minimal and adapt from this file only when
-  // you want more explicit agent shaping.
-  // If you also want Tilth, see `examples/opencode/opencode.tilth.jsonc`.
+
+  // Native full-stack OpenCode profile for this starter.
+  // This mirrors the root config and adds explicit agent shaping.
   "plugin": ["opencode-hive"],
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
+  "mcpServers": {
+    "beads-village": {
+      "command": "npx",
+      "args": ["beads-village"]
     },
-    "fetch": {
-      "type": "local",
-      "command": ["uvx", "mcp-server-fetch"]
+    "tilth": {
+      "command": "tilth",
+      "args": ["--mcp", "--edit"]
+    },
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+    },
+    "notebooklm": {
+      "command": "npx",
+      "args": ["-y", "notebooklm-mcp@latest"]
     }
   },
   "agent": {
@@ -31,6 +37,8 @@
           "git log*": "allow",
           "rg *": "allow",
           "bd *": "allow",
+          "npx beads-village*": "allow",
+          "tilth *": "allow",
           "*": "deny"
         }
       }

@@ -4,9 +4,8 @@
 
 This document standardizes how Hive is used for collaboration.
 
-Beads is the default engineering execution layer. Hive is optional and should be
-used when the team wants explicit in-repo feature plans, handoff files, and task
-reports in addition to the Beads task graph.
+Beads is the engineering execution layer. Hive is the orchestration layer for
+planning, approval, batching, and handoff in this starter.
 
 ## Lifecycle
 
@@ -25,4 +24,4 @@ Do not start execution before approval.
 
 When both are in use:
 - Beads owns engineering execution state
-- Hive owns optional plan-first feature scaffolding and handoff files
+- Hive owns plan-first feature scaffolding and handoff files

@@ -4,9 +4,8 @@ set -euo pipefail
 
 if command -v tilth >/dev/null 2>&1; then
   echo "Tilth already installed: $(command -v tilth)"
-  echo "To wire it into OpenCode user config, run:"
-  echo "  tilth install opencode"
-  echo "  tilth install opencode --edit"
+  echo "Tilth is ready for the native OpenCode stack."
+  echo "The project root opencode.json already expects: tilth --mcp --edit"
   exit 0
 fi
 
@@ -22,6 +21,5 @@ else
   exit 1
 fi
 
-echo "Tilth installed. To wire it into OpenCode user config, run:"
-echo "  tilth install opencode"
-echo "  tilth install opencode --edit"
+echo "Tilth installed. The project root opencode.json already expects:"
+echo "  tilth --mcp --edit"

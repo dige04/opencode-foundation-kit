@@ -11,7 +11,7 @@ Each spec should include:
 
 The specs in this starter assume:
 - Beads-first execution by default
-- optional Hive planning for feature-sized work
+- Hive planning and approval for feature-sized work
 - NotebookLM retrieval only
 - durable promotion into `docs/` or pod files
 

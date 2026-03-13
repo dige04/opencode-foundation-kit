@@ -7,11 +7,13 @@ starter repository.
 
 ## Standard Statement
 
-- keep the root `opencode.json` minimal by default
-- keep richer setup in optional example configs
-- use OpenCode in a way that preserves the Hive lifecycle
+- use the root `opencode.json` as the canonical native stack config
+- run Agent Hive through the `opencode-hive` plugin
+- run `beads-village`, `tilth`, `linear`, and `notebooklm` as native OpenCode
+  MCP servers
 - use Beads as the essential engineering execution layer in this starter
-- add Tilth only as an optional code-perception layer
+- use Beads Village as the coordination layer on top of Beads core
+- use Tilth as the code-perception layer for structural navigation and edits
 - treat NotebookLM as retrieval only
 - promote durable guidance into `docs/` or pod files
 
@@ -27,28 +29,28 @@ starter repository.
 ## Working Model
 
 ```text
-Linear / Figma / NotebookLM
-            |
-            v
-      Hive + Beads runtime
-            |
-            v
-  OpenCode agents + Tilth MCP
-            |
-            v
- docs/ + pods/ + .hive/
+NotebookLM MCP   Linear MCP   Tilth MCP   Beads Village MCP
+          \          |           |              /
+           \         |           |             /
+            \        |           |            /
+             OpenCode runtime + opencode-hive
+                       |
+                Hive + Beads core
+                       |
+             docs/ + pods/ + .hive/
 ```
 
 ## Memory Split
 
 - retrieval memory: `NotebookLM`
-- workflow memory: `Hive` and Beads task state
+- workflow memory: `Hive`, Beads task state, and Beads Village coordination
 - durable project memory: `docs/` and `pods/`
-- code perception: optional `Tilth`
+- code perception: `Tilth`
 
 ## Related Standards
 
 - `docs/beads-standard.md`
+- `docs/beads-village-integration.md`
 - `docs/tilth-integration.md`
 - `docs/agent-hive-standard.md`
 - `docs/integration-model.md`
@@ -57,9 +59,8 @@ Linear / Figma / NotebookLM
 ## Builder Setup Pattern
 
 1. install and launch OpenCode
-2. keep the root `opencode.json` active and minimal
-3. adapt from `examples/opencode/opencode.foundation.jsonc` only if richer
-   setup is needed
-4. load the agent specs in `docs/opencode-agents/` as role contracts
+2. install Beads and Tilth locally
+3. keep the root `opencode.json` active as the native project config
+4. authenticate external services used by the MCP servers when needed
 5. initialize Beads as part of normal starter setup
-6. add Tilth only if the team wants stronger code navigation and search
+6. load the agent specs in `docs/opencode-agents/` as role contracts

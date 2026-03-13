@@ -1,44 +1,40 @@
 # OpenCode Foundation Kit
 
-![OpenCode](https://img.shields.io/badge/OpenCode-foundation-0A84FF)
-![Hive](https://img.shields.io/badge/Hive-plan--first-2F855A)
-![Beads](https://img.shields.io/badge/Beads-execution-F59E0B)
-![Tilth](https://img.shields.io/badge/Tilth-code--perception-0F766E)
-![NotebookLM](https://img.shields.io/badge/NotebookLM-retrieval-7C3AED)
+![OpenCode](https://img.shields.io/badge/OpenCode-runtime-0A84FF)
+![Hive](https://img.shields.io/badge/Hive-orchestration-2F855A)
+![Beads](https://img.shields.io/badge/Beads-core_memory-F59E0B)
+![Village](https://img.shields.io/badge/Beads_Village-coordination-C27A1A)
+![Tilth](https://img.shields.io/badge/Tilth-code_perception-0F766E)
 
-A public starter for teams that want `OpenCode` to ship with a real operating
-model, not just a config file.
+A public starter for teams that want `OpenCode` to ship with a complete native
+AI development stack, not just a prompt file.
 
-This starter bakes in:
-- `OpenCode` as the coding-agent environment
-- `Beads` as the essential engineering execution and memory layer
-- `Hive` as the orchestration and plan-first execution layer
-- optional `Tilth` integration for stronger code perception
-- `NotebookLM` as retrieval only
-- `docs/` and pod files as durable project memory
+This starter treats the following as one coherent stack:
+- `OpenCode` as runtime and MCP host
+- `Agent Hive` as orchestration and plan-first execution flow
+- `Beads` as the core task graph and execution memory layer
+- `Beads Village` as the coordination layer on top of Beads
+- `Tilth` as the code-perception layer
+- `Linear` and `NotebookLM` as native MCP integrations for planning and retrieval
 
 ## Core Principle
 
-In this starter:
-- `OpenCode`, `Hive`, and `Beads` are the core stack
-- `Tilth` is the only optional addon in the coding loop
-- `NotebookLM`, `Linear`, and `Figma` stay external systems of record in their
-  own roles
+In this starter, the stack is native to `OpenCode`.
 
-If you adopt this repo as designed, do not treat `Beads` as optional.
+- root `opencode.json` is the canonical stack config
+- `opencode-hive` runs as the orchestration plugin
+- `beads-village`, `tilth`, `linear`, and `notebooklm` run as MCP servers
+- `Beads Village` does not replace Beads core; it wraps it with locking and
+  messaging
+- no layer is meant to overlap another layer's responsibility
 
-## Why This Starter Exists
+## What This Starter Gives You
 
-Most AI-agent setups stop at local prompts and personal config. This starter is
-meant to be cloned by a team and used as a shared foundation.
-
-It gives you:
-- a minimal root `opencode.json`
-- a richer optional OpenCode profile in `examples/opencode/`
-- Beads and Hive standards that do not fight each other
-- optional Tilth integration and setup guidance
-- pod templates for execution memory and handoff
-- OpenCode role specs for planning, docs, research, review, and integration
+- a root `opencode.json` with the native stack wired in
+- documented standards for OpenCode, Hive, Beads, Beads Village, and Tilth
+- pod templates and Hive templates for in-repo handoff
+- reference configs under `examples/opencode/`
+- workflow diagrams for architecture and execution
 
 ## Install And Setup
 
@@ -60,104 +56,53 @@ Or use the helper in this repo:
 bash scripts/setup-beads.sh
 ```
 
-### 3. Optional: install Tilth
+### 3. Install Tilth
 
 ```bash
 bash scripts/setup-tilth.sh
 ```
 
-Or wire it to OpenCode user config directly after installing Tilth:
+### 4. Verify the native MCP stack pieces
 
 ```bash
-tilth install opencode
+npx beads-village --help
 ```
 
-### 4. Launch OpenCode
+```bash
+tilth --help
+```
+
+Or run the built-in preflight:
+
+```bash
+bash scripts/check-native-stack.sh
+```
+
+### 5. Launch OpenCode
 
 ```bash
 opencode
 ```
 
-### 5. Read the starter docs first
+### 6. Complete local auth for external MCP integrations
 
-1. `docs/opencode-standard.md`
-2. `docs/beads-standard.md`
-3. `docs/tilth-integration.md`
-4. `docs/agent-hive-standard.md`
-5. `docs/integration-model.md`
-6. `docs/code-standards.md`
-7. `docs/opencode-agents/README.md`
+- authenticate `Linear` MCP in your local OpenCode environment
+- authenticate `NotebookLM` MCP in your local OpenCode environment
 
-## Essential Vs Optional
+## Native OpenCode Configuration
 
-### Essential
+The root `opencode.json` is the starter's source of truth for runtime wiring.
 
-- `OpenCode` runtime
-- `Hive` orchestration
-- `Beads` execution memory and dependency graph
-- `docs/` and pod files for durable project memory
+It configures:
+- plugin: `opencode-hive`
+- MCP servers: `beads-village`, `tilth`, `linear`, `notebooklm`
 
-### Optional
+That means OpenCode is the place where the stack is assembled, while each tool
+still keeps its own responsibility.
 
-- `Tilth` for stronger code perception
-- `Linear` MCP wiring in OpenCode examples
-- `NotebookLM` MCP wiring in OpenCode examples
-- richer project-level config examples under `examples/opencode/`
+## Architecture
 
-## Usage Modes
-
-### Core profile
-
-Use:
-- `opencode.json`
-- `Beads` as the required execution layer
-- `Hive` as the orchestration layer
-
-This is the default recommendation.
-
-### Foundation mode
-
-Adapt from:
-- `examples/opencode/opencode.foundation.jsonc`
-- `examples/opencode/opencode.tilth.jsonc`
-
-Use this when you want more explicit agent shaping, MCP examples, and tighter
-role boundaries.
-
-### Team-stack mode
-
-Adapt from:
-- `examples/opencode/opencode.team-stack.jsonc`
-
-Use this when your team wants one example that shows where `Linear`,
-`NotebookLM`, `Tilth`, `Context7`, and `fetch` fit into the broader stack.
-
-Treat this file as a placeholder example, not a mandatory default.
-
-## Tool Map
-
-- `OpenCode` - runtime, providers, agent surface, plugin support
-- `Hive` - plan, approval, batching, worktree-oriented execution flow
-- `Beads` - claiming, dependency graph, execution memory, compaction
-- `Tilth` - code perception, definition-first search, callers/callees context
-- `NotebookLM` - retrieval for BRD, architecture, and decision context
-- `Linear` - business planning and issue state
-- `Figma` - approved design intent
-
-## Working Model
-
-```text
-Linear / Figma / NotebookLM
-            |
-            v
-      Hive + Beads runtime
-            |
-            v
-   OpenCode agents + Tilth MCP
-            |
-            v
- docs/ + pods/ + .hive/
-```
+![Native OpenCode stack architecture](docs/diagrams/full-stack-native.svg)
 
 ## Team Workflow
 
@@ -165,51 +110,65 @@ Linear / Figma / NotebookLM
 
 ### 1. BA or PM creates the work
 
-- requirement lives in `Linear` or the planning system your team uses
-- business priority stays outside Beads
+- requirements live in `Linear` or the planning system your team uses
+- business priority stays outside Beads core
 
 ### 2. Lead reviews and plans
 
-- lead or architect reviews context from docs, design, and retrieval sources
-- `Hive` produces or coordinates the execution plan when the feature is
-  non-trivial
+- leads review context from docs, design, and retrieval sources
+- `Hive` creates or coordinates the approved execution flow
 
-### 3. Execute in parallel
+### 3. Builders execute in parallel
 
 - builders claim work in `Beads`
-- `Hive` can batch independent tasks and run them in parallel execution flows
-- `Tilth`, when enabled, improves code navigation inside those tasks
+- `Hive` batches tasks and isolates execution through worktrees
+- `Tilth` handles code perception during implementation and review
 
-### 4. Track in Beads
+### 4. Beads Village coordinates the builders
 
-- use `bd ready`, `bd update --claim`, `bd dep add`, and `bd close`
-- dependency and execution state belong in Beads, not only in prose
+- use `reserve` and `release` to avoid file conflicts
+- use `msg` and `inbox` to coordinate between agents and batches
+- use Beads Village status and dashboards for visibility when helpful
 
 ### 5. Review and sync
 
-- review results and implementation notes flow back into docs, pod files, and
-  external delivery systems
-- if the team uses external issue sync, that happens after review passes
+- review outcomes feed back into docs, pods, and delivery systems
+- external issue sync happens after review passes
 
 ### 6. Compact and carry forward
 
-- Beads keeps execution memory between sessions
+- Beads keeps execution memory over time
+- Beads Village coordination state supports active work
 - durable outcomes are promoted into `docs/` and `pods/`
-- the next sprint starts from real execution state, not from scratch
+
+## Tool Map
+
+- `OpenCode` - runtime, providers, plugin host, MCP host
+- `Hive` - planning, approval, batching, worktree execution, skills
+- `Beads` - task graph, dependency memory, claim/close flow, compaction
+- `Beads Village` - locking, messaging, status, dashboard
+- `Tilth` - AST-aware search, definition tracing, callers/callees, edit anchors
+- `Linear` - planning and issue state
+- `NotebookLM` - retrieval for BRD, architecture, and decision context
+- `Figma` - approved design intent
 
 ## Repository Layout
 
+- `opencode.json` - native OpenCode runtime config for the stack
 - `docs/` - durable standards and operating guidance
+- `docs/diagrams/` - architecture and workflow diagrams
 - `docs/opencode-agents/` - standardized OpenCode role specs
-- `examples/opencode/` - optional advanced OpenCode config examples
-- `.hive/` - optional Hive planning templates and workflow scaffolding
+- `examples/opencode/` - commented reference configs aligned with the same stack
+- `.hive/` - Hive planning templates and handoff scaffolding
 - `pods/` - default pod-local context, dependencies, decisions, and task memory
-- `scripts/` - optional helper scripts such as Beads bootstrap
+- `scripts/` - setup helpers for Beads and Tilth
+- `scripts/check-native-stack.sh` - preflight checker for the native stack
 
 ## Included Standards
 
 - `docs/opencode-standard.md`
 - `docs/beads-standard.md`
+- `docs/beads-village-integration.md`
 - `docs/tilth-integration.md`
 - `docs/team-stack-pattern.md`
 - `docs/agent-hive-standard.md`
@@ -225,21 +184,29 @@ Linear / Figma / NotebookLM
 - `pods/candidate-experience/tasks/_template.md`
 - `pods/content-cms-strapi/tasks/_template.md`
 
-## Public Starter Notes
+## Reference Configs
 
-- keep `opencode.json` minimal by default
-- treat NotebookLM as retrieval only
-- treat Beads as essential in this starter, not optional
-- treat Tilth as optional code perception, not as memory or orchestration
-- treat Hive as the orchestration layer for non-trivial work
-- promote durable knowledge into `docs/` or pod files
+- `opencode.json` - canonical native stack config
+- `examples/opencode/opencode.foundation.jsonc` - native stack plus explicit
+  agent shaping
+- `examples/opencode/opencode.team-stack.jsonc` - native stack with commented
+  reference wiring for the full team model
 
-## Next Steps After Clone
+## Public Starter Rules
+
+- do not treat `Beads Village` as a replacement for `Beads`
+- do not treat `Tilth` as memory or orchestration
+- do not move durable knowledge into messages or reservations
+- do not let OpenCode become the source of truth instead of docs, pods, and the
+  planning systems
+- keep each layer responsible for one thing:
+  runtime, orchestration, memory, coordination, or perception
+
+## After Clone
 
 1. keep or rename the default pods in `pods/`
 2. initialize and adopt `Beads` as the execution layer
-3. decide whether to add optional Tilth integration
-4. adapt `examples/opencode/opencode.foundation.jsonc` or
-   `examples/opencode/opencode.tilth.jsonc` or
-   `examples/opencode/opencode.team-stack.jsonc` if you need richer setup
-5. replace starter wording in docs with your project-specific sources of truth
+3. confirm `beads-village` and `tilth` resolve on your machine
+4. authenticate `Linear` and `NotebookLM` MCP integrations locally
+5. use the root `opencode.json` as the native project config
+6. replace starter wording in docs with your project-specific sources of truth

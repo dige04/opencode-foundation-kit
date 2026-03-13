@@ -1,32 +1,27 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
-  // Full optional team-stack example.
-  // This keeps the same OpenCode + Hive + Beads model, while showing where
-  // Linear, NotebookLM, and Tilth MCP servers can plug in.
-  // Replace or remove any MCP entry your team does not use.
+  // Full native team-stack example.
+  // This keeps the same OpenCode + Hive + Beads model, and adds the Beads
+  // Village coordination layer natively in OpenCode.
   "plugin": ["opencode-hive"],
 
-  "mcp": {
+  "mcpServers": {
+    "beads-village": {
+      "command": "npx",
+      "args": ["beads-village"]
+    },
     "linear": {
-      "type": "local",
-      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
     },
     "notebooklm": {
-      "type": "local",
-      "command": ["npx", "-y", "notebooklm-mcp@latest"]
+      "command": "npx",
+      "args": ["-y", "notebooklm-mcp@latest"]
     },
     "tilth": {
-      "type": "local",
-      "command": ["tilth", "--mcp"]
-    },
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
-    },
-    "fetch": {
-      "type": "local",
-      "command": ["uvx", "mcp-server-fetch"]
+      "command": "tilth",
+      "args": ["--mcp", "--edit"]
     }
   },
 
@@ -45,6 +40,8 @@
           "git log*": "allow",
           "rg *": "allow",
           "bd *": "allow",
+          "npx beads-village*": "allow",
+          "tilth *": "allow",
           "*": "deny"
         }
       }

@@ -4,8 +4,7 @@ This document standardizes how `beads` should be used with this starter.
 
 ## Role of Beads
 
-Beads is the default operational backbone for engineering execution in this
-starter.
+Beads is the core execution memory layer for this starter.
 
 Use Beads for:
 - engineering subtasks
@@ -15,6 +14,9 @@ Use Beads for:
 - agent claiming and completion
 - external task sync when enabled
 - daemon-backed automation and hooks when enabled
+
+Beads Village builds on top of this layer. It does not replace Beads. Beads
+still owns the task graph, dependency structure, IDs, and compaction model.
 
 Do not use Beads as the source of truth for:
 - product priority
@@ -35,10 +37,11 @@ Do not use Beads as the source of truth for:
 1. Start from Linear, Figma, NotebookLM, and repo docs.
 2. Create, sync, or link Beads tasks for engineering execution.
 3. Claim work before editing.
-4. Add dependency edges instead of keeping blockers only in prose.
-5. Use optional `.hive/` files only when the feature needs extra planning or
-   handoff structure.
-6. Promote completed engineering outcomes back into docs, pod files, and review
+4. Use Beads Village reservations and messages for multi-agent coordination.
+5. Add dependency edges instead of keeping blockers only in prose.
+6. Use `.hive/` files when the feature needs extra planning or handoff
+   structure.
+7. Promote completed engineering outcomes back into docs, pod files, and review
    artifacts.
 
 ## Modes
@@ -56,6 +59,8 @@ Use tracked mode when the team wants shared task graph state in git.
 
 - Keep Linear as the source of truth for project status.
 - Keep Beads as the source of truth for engineering execution state.
-- Keep `.hive/` optional and lightweight if used at all.
+- Keep `.hive/` aligned with the Beads graph rather than drifting from it.
+- Use Beads Village for lock and mail coordination, not as a substitute for the
+  underlying Beads graph.
 - Do not create duplicate business tasks in both Linear and Beads without a
   link.

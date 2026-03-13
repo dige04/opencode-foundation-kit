@@ -10,8 +10,8 @@
 
 - `docs/` for durable standards and operating rules
 - `docs/opencode-agents/` for OpenCode role contracts
-- `examples/opencode/` for optional config examples
-- `.hive/` for optional feature scaffolding and templates
+- `examples/opencode/` for commented reference configs aligned to the native stack
+- `.hive/` for feature scaffolding and templates
 - `pods/` for pod-local memory and task handoff files
 
 ## Coding-Agent Standard
