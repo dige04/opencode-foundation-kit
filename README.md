@@ -1,4 +1,4 @@
-# OpenCode Foundation Kit
+# Foundation Kit
 
 ![OpenCode](https://img.shields.io/badge/OpenCode-runtime-0A84FF)
 ![Hive](https://img.shields.io/badge/Hive-orchestration-2F855A)
@@ -6,8 +6,9 @@
 ![Village](https://img.shields.io/badge/Beads_Village-coordination-C27A1A)
 ![Tilth](https://img.shields.io/badge/Tilth-code_perception-0F766E)
 
-A public starter for teams that want `OpenCode` to ship with a complete native
-AI development stack, not just a prompt file.
+A public starter for teams that want a shared AI development stack with
+OpenCode-native runtime wiring and docs/processes that remain usable from Claude
+Code as well.
 
 This starter treats the following as one coherent stack:
 - `OpenCode` as runtime and MCP host
@@ -156,6 +157,41 @@ It configures:
 
 That means OpenCode is the place where the stack is assembled, while each tool
 still keeps its own responsibility.
+
+## Doctor
+
+Use these exact commands to validate the stack locally.
+
+### Basic CLI checks
+
+```bash
+opencode --help
+bd --help
+tilth --help
+npx beads-village --help
+```
+
+### Project preflight
+
+```bash
+bash scripts/check-native-stack.sh
+```
+
+Expected:
+- native stack preflight passes
+- only auth reminders may remain for `Linear` and `NotebookLM`
+
+### OpenCode runtime check
+
+```bash
+opencode mcp list
+```
+
+Expected configured servers:
+- `beads-village`
+- `tilth`
+- `linear`
+- `notebooklm`
 
 ## Architecture
 

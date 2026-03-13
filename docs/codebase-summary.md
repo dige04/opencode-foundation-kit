@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This repository is a reusable foundation for OpenCode-centered project setup.
+This repository is a reusable foundation kit for OpenCode-native setup with
+cross-tool compatible docs and process scaffolding.
 
 ## Current Shape
 

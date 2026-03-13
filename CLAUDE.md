@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This repository is a reusable OpenCode foundation starter.
+This repository is a reusable Foundation Kit starter.
 
 Read first:
 1. `docs/opencode-standard.md`

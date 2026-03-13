@@ -2,8 +2,8 @@
 
 ## Purpose
 
-Repository-wide instructions for coding agents working in this OpenCode
-foundation starter.
+Repository-wide instructions for coding agents working in this Foundation Kit
+starter.
 
 ## Read Order
 
