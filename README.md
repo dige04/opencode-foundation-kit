@@ -36,6 +36,63 @@ In this starter, the stack is native to `OpenCode`.
 - reference configs under `examples/opencode/`
 - workflow diagrams for architecture and execution
 
+## Why These Layers Exist
+
+Each layer solves a different failure mode in AI-assisted development. The goal
+is not to add tools for the sake of it, but to avoid making one tool carry too
+many responsibilities.
+
+### Why Agent Hive
+
+Use `Agent Hive` because orchestration is a separate problem from execution.
+
+- it gives the team a plan -> approve -> execute model
+- it batches independent work and isolates it in worktrees
+- it provides handoff structure, review gates, and audit trail in `.hive/`
+- it keeps multi-step work coordinated instead of turning every session into ad
+  hoc prompting
+
+Without Hive, OpenCode can still run agents, but the team loses a strong
+orchestration layer for non-trivial work.
+
+### Why Beads
+
+Use `Beads` because durable execution memory is a separate problem from
+orchestration.
+
+- it owns the engineering task graph
+- it tracks dependencies, claims, blockers, and closure over time
+- it gives the team compaction and persistent execution memory between sessions
+- it keeps engineering state out of chat history and scattered notes
+
+Without Beads, the team has plans but lacks a durable graph of actual execution.
+
+### Why Beads Village
+
+Use `Beads Village` because coordination between multiple agents is a separate
+problem from the Beads graph itself.
+
+- it wraps Beads core with file locking and agent messaging
+- it prevents two builders from editing the same file blindly
+- it gives agents a lightweight coordination channel during parallel work
+- it adds workspace visibility without replacing Beads core
+
+Beads Village does not replace Beads. It adds the lock + mail layer that Beads
+core does not provide on its own.
+
+### Why Tilth
+
+Use `Tilth` because code perception is a separate problem from orchestration,
+memory, and coordination.
+
+- it improves structural file reading for large codebases
+- it gives definition-first search instead of plain string matching
+- it exposes callers, callees, and impact analysis faster
+- it reduces wasted tool loops during implementation and review
+
+Without Tilth, the stack still works, but agents spend more effort navigating
+code and understanding impact.
+
 ## Install And Setup
 
 ### 1. Install OpenCode

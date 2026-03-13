@@ -6,22 +6,22 @@
   // Village coordination layer natively in OpenCode.
   "plugin": ["opencode-hive"],
 
-  "mcpServers": {
+  "mcp": {
     "beads-village": {
-      "command": "npx",
-      "args": ["beads-village"]
+      "type": "local",
+      "command": ["npx", "beads-village"]
     },
     "linear": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"]
     },
     "notebooklm": {
-      "command": "npx",
-      "args": ["-y", "notebooklm-mcp@latest"]
+      "type": "local",
+      "command": ["npx", "-y", "notebooklm-mcp@latest"]
     },
     "tilth": {
-      "command": "tilth",
-      "args": ["--mcp", "--edit"]
+      "type": "local",
+      "command": ["tilth", "--mcp", "--edit"]
     }
   },
 
