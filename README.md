@@ -161,6 +161,8 @@ Linear / Figma / NotebookLM
 
 ## Team Workflow
 
+![OpenCode foundation workflow](docs/diagrams/team-workflow-stack.svg)
+
 ### 1. BA or PM creates the work
 
 - requirement lives in `Linear` or the planning system your team uses
