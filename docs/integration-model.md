@@ -5,8 +5,8 @@
 - NotebookLM: retrieval only
 - Linear: planning and task status
 - Figma: approved design intent
-- Beads: engineering execution graph and dependency tracking
-- Hive: optional workflow collaboration layer
+- Beads: essential engineering execution graph and dependency tracking
+- Hive: orchestration and plan-first collaboration layer
 - Tilth: optional code-perception layer for structural read, symbol lookup, and
   callers/callees tracing
 - Git hosting platform: code review and release governance

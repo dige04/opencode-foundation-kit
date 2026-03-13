@@ -9,7 +9,7 @@ This document captures the recommended team-stack pattern behind this starter.
 - `OpenCode` - runtime and coding-agent environment
 - `Tilth` - optional code-perception layer
 - `Agent Hive` - orchestration and plan-first feature scaffolding
-- `Beads` - engineering execution memory and dependency-aware task graph
+- `Beads` - essential engineering execution memory and dependency-aware task graph
 - `NotebookLM` - retrieval for product and technical context
 - `Linear` - planning and issue state
 - `Figma` - approved design intent
@@ -39,10 +39,9 @@ Linear / Figma / NotebookLM
 ## Team Flow
 
 1. Product or BA clarifies work in the planning system.
-2. Leads or architects review context and decide whether optional Hive planning
-   is needed.
-3. Builders claim engineering work in Beads when the team uses Beads-first
+2. Leads or architects review context and use Hive to shape and approve
    execution.
+3. Builders claim engineering work in Beads as the execution layer.
 4. OpenCode agents use Tilth, repo docs, and external retrieval to navigate and
    implement safely.
 5. Stable outcomes are promoted into `docs/` or pod files.
@@ -59,5 +58,5 @@ Linear / Figma / NotebookLM
 - do not collapse all concerns into one tool
 - keep durable knowledge in repo docs or pod files
 - keep planning authority outside engineering execution memory
-- keep optional layers optional unless the team intentionally standardizes them
+- keep Tilth optional, but keep the core OpenCode + Hive + Beads stack intact
 - keep the full team-stack example as a starting point, not a required default

@@ -10,8 +10,7 @@ starter repository.
 - keep the root `opencode.json` minimal by default
 - keep richer setup in optional example configs
 - use OpenCode in a way that preserves the Hive lifecycle
-- keep Beads as the default engineering execution layer when the team uses task
-  graphs
+- use Beads as the essential engineering execution layer in this starter
 - add Tilth only as an optional code-perception layer
 - treat NotebookLM as retrieval only
 - promote durable guidance into `docs/` or pod files
@@ -62,5 +61,5 @@ Linear / Figma / NotebookLM
 3. adapt from `examples/opencode/opencode.foundation.jsonc` only if richer
    setup is needed
 4. load the agent specs in `docs/opencode-agents/` as role contracts
-5. initialize Beads if your team uses Beads-first execution
+5. initialize Beads as part of normal starter setup
 6. add Tilth only if the team wants stronger code navigation and search

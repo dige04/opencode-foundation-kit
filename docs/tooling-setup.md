@@ -21,7 +21,7 @@ opencode --help
 
 ## Beads
 
-If you want the Beads-first workflow, install the `bd` CLI. One common path is:
+Beads is part of the core starter workflow. Install the `bd` CLI:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
@@ -116,3 +116,8 @@ See also:
 4. `docs/agent-hive-standard.md`
 5. `docs/integration-model.md`
 6. `docs/code-standards.md`
+
+Core expectation:
+- install OpenCode
+- install Beads
+- add Tilth only if you want the optional code-perception layer

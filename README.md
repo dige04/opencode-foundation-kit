@@ -11,11 +11,21 @@ model, not just a config file.
 
 This starter bakes in:
 - `OpenCode` as the coding-agent environment
-- `Beads` as the default engineering execution layer
-- optional `Hive` scaffolding for plan-first feature handoff
+- `Beads` as the essential engineering execution and memory layer
+- `Hive` as the orchestration and plan-first execution layer
 - optional `Tilth` integration for stronger code perception
 - `NotebookLM` as retrieval only
 - `docs/` and pod files as durable project memory
+
+## Core Principle
+
+In this starter:
+- `OpenCode`, `Hive`, and `Beads` are the core stack
+- `Tilth` is the only optional addon in the coding loop
+- `NotebookLM`, `Linear`, and `Figma` stay external systems of record in their
+  own roles
+
+If you adopt this repo as designed, do not treat `Beads` as optional.
 
 ## Why This Starter Exists
 
@@ -38,7 +48,7 @@ It gives you:
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-### 2. Optional: install Beads
+### 2. Install Beads
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
@@ -78,14 +88,32 @@ opencode
 6. `docs/code-standards.md`
 7. `docs/opencode-agents/README.md`
 
+## Essential Vs Optional
+
+### Essential
+
+- `OpenCode` runtime
+- `Hive` orchestration
+- `Beads` execution memory and dependency graph
+- `docs/` and pod files for durable project memory
+
+### Optional
+
+- `Tilth` for stronger code perception
+- `Linear` MCP wiring in OpenCode examples
+- `NotebookLM` MCP wiring in OpenCode examples
+- richer project-level config examples under `examples/opencode/`
+
 ## Usage Modes
 
-### Minimal mode
+### Core profile
 
-Use the root config only:
+Use:
 - `opencode.json`
+- `Beads` as the required execution layer
+- `Hive` as the orchestration layer
 
-This keeps the repo simple and is the default recommendation.
+This is the default recommendation.
 
 ### Foundation mode
 
@@ -106,6 +134,16 @@ Use this when your team wants one example that shows where `Linear`,
 
 Treat this file as a placeholder example, not a mandatory default.
 
+## Tool Map
+
+- `OpenCode` - runtime, providers, agent surface, plugin support
+- `Hive` - plan, approval, batching, worktree-oriented execution flow
+- `Beads` - claiming, dependency graph, execution memory, compaction
+- `Tilth` - code perception, definition-first search, callers/callees context
+- `NotebookLM` - retrieval for BRD, architecture, and decision context
+- `Linear` - business planning and issue state
+- `Figma` - approved design intent
+
 ## Working Model
 
 ```text
@@ -120,6 +158,42 @@ Linear / Figma / NotebookLM
             v
  docs/ + pods/ + .hive/
 ```
+
+## Team Workflow
+
+### 1. BA or PM creates the work
+
+- requirement lives in `Linear` or the planning system your team uses
+- business priority stays outside Beads
+
+### 2. Lead reviews and plans
+
+- lead or architect reviews context from docs, design, and retrieval sources
+- `Hive` produces or coordinates the execution plan when the feature is
+  non-trivial
+
+### 3. Execute in parallel
+
+- builders claim work in `Beads`
+- `Hive` can batch independent tasks and run them in parallel execution flows
+- `Tilth`, when enabled, improves code navigation inside those tasks
+
+### 4. Track in Beads
+
+- use `bd ready`, `bd update --claim`, `bd dep add`, and `bd close`
+- dependency and execution state belong in Beads, not only in prose
+
+### 5. Review and sync
+
+- review results and implementation notes flow back into docs, pod files, and
+  external delivery systems
+- if the team uses external issue sync, that happens after review passes
+
+### 6. Compact and carry forward
+
+- Beads keeps execution memory between sessions
+- durable outcomes are promoted into `docs/` and `pods/`
+- the next sprint starts from real execution state, not from scratch
 
 ## Repository Layout
 
@@ -153,15 +227,15 @@ Linear / Figma / NotebookLM
 
 - keep `opencode.json` minimal by default
 - treat NotebookLM as retrieval only
-- let Beads own engineering execution when used
+- treat Beads as essential in this starter, not optional
 - treat Tilth as optional code perception, not as memory or orchestration
-- use Hive only when extra plan/report scaffolding is worth it
+- treat Hive as the orchestration layer for non-trivial work
 - promote durable knowledge into `docs/` or pod files
 
 ## Next Steps After Clone
 
 1. keep or rename the default pods in `pods/`
-2. choose whether your team is Beads-first or OpenCode-minimal first
+2. initialize and adopt `Beads` as the execution layer
 3. decide whether to add optional Tilth integration
 4. adapt `examples/opencode/opencode.foundation.jsonc` or
    `examples/opencode/opencode.tilth.jsonc` or
