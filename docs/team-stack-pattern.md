@@ -38,6 +38,14 @@ Linear / Figma / NotebookLM
 - `examples/opencode/opencode.team-stack.jsonc` - full reference config with
   native Linear, NotebookLM, Tilth, and Beads Village MCP wiring
 
+## Client Modes
+
+- `OpenCode` mode: full native stack with Agent Hive plugin automation
+- `Claude Code` mode: same MCP core stack with Claude subagents and repo
+  conventions in `AGENTS.md`
+- mixed-team mode: share the same Beads, Village, docs, and pod state across
+  both clients
+
 ## Team Flow
 
 1. Product or BA clarifies work in the planning system.
@@ -64,3 +72,4 @@ Linear / Figma / NotebookLM
 - keep planning authority outside engineering execution memory
 - keep the core OpenCode + Hive + Beads + Beads Village + Tilth stack intact
 - keep the full team-stack example aligned with the root project config
+- do not claim that every client gets the same Hive automation surface

@@ -19,3 +19,9 @@ This starter uses a native OpenCode stack:
 - `beads-village`, `tilth`, `linear`, and `notebooklm` as MCP servers
 - `beads` as core execution memory
 - `.hive/` for plan-first orchestration and handoff
+
+When used from Claude Code:
+- the MCP-based layers still apply
+- `Agent Hive` remains a conceptual workflow model, not a native Claude plugin
+- use this file, `AGENTS.md`, and optional `.claude/skills/` to encode the same
+  execution conventions

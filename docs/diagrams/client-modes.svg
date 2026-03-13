@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="920" viewBox="0 0 1180 920" role="img" aria-labelledby="title desc">
+  <title id="title">Foundation Kit client modes</title>
+  <desc id="desc">Two supported client modes: OpenCode with full Hive orchestration, and Claude Code with the same MCP core stack plus subagents and AGENTS.md conventions.</desc>
+  <defs>
+    <style>
+      .title { font: 700 26px sans-serif; fill: #1f2937; }
+      .sub { font: 500 18px sans-serif; fill: #334155; }
+      .h { font: 700 22px sans-serif; }
+      .t { font: 500 18px sans-serif; }
+      .box { stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1180" height="920" fill="#f9fafb" />
+  <text x="590" y="42" text-anchor="middle" class="title">Two supported client modes</text>
+  <text x="590" y="74" text-anchor="middle" class="sub">Same Beads/Village/Tilth/Linear/NotebookLM core, different orchestration host behavior</text>
+
+  <rect x="60" y="108" width="490" height="700" rx="22" ry="22" fill="#e8f0fb" stroke="#4f84d3" stroke-dasharray="7 7" class="box" />
+  <text x="305" y="156" text-anchor="middle" class="h" fill="#184e96">Setup A: OpenCode</text>
+  <text x="305" y="188" text-anchor="middle" class="t" fill="#235fae">Full Hive orchestration</text>
+
+  <rect x="86" y="228" width="438" height="84" rx="16" ry="16" fill="#ecebff" stroke="#6366f1" class="box" />
+  <text x="305" y="264" text-anchor="middle" class="h" fill="#4338ca">Agent Hive (plugin)</text>
+  <text x="305" y="295" text-anchor="middle" class="t" fill="#4f46d9">batch + worktrees + skills + review flow</text>
+
+  <rect x="86" y="332" width="438" height="70" rx="16" ry="16" fill="#dff0ea" stroke="#0f8a74" class="box" />
+  <text x="305" y="372" text-anchor="middle" class="h" fill="#0f5d4f">Beads Village (MCP)</text>
+  <text x="305" y="396" text-anchor="middle" class="t" fill="#136b5a">lock + mail + Beads wrapper</text>
+
+  <rect x="86" y="420" width="438" height="70" rx="16" ry="16" fill="#e6efdd" stroke="#799b42" class="box" />
+  <text x="305" y="460" text-anchor="middle" class="h" fill="#45631e">Tilth (MCP)</text>
+  <text x="305" y="484" text-anchor="middle" class="t" fill="#557929">AST + outline + edit anchors</text>
+
+  <rect x="86" y="510" width="208" height="62" rx="14" ry="14" fill="#f9e6ef" stroke="#cc5d82" class="box" />
+  <text x="190" y="548" text-anchor="middle" class="t" fill="#9c2c57">Linear MCP</text>
+
+  <rect x="316" y="510" width="208" height="62" rx="14" ry="14" fill="#f7e7df" stroke="#bc6c25" class="box" />
+  <text x="420" y="548" text-anchor="middle" class="t" fill="#9a4b10">NotebookLM MCP</text>
+
+  <rect x="86" y="596" width="438" height="118" rx="16" ry="16" fill="#eef7df" stroke="#86a64f" class="box" />
+  <text x="305" y="636" text-anchor="middle" class="t" fill="#4d6e1f">Pro: full Hive automation</text>
+  <text x="305" y="668" text-anchor="middle" class="t" fill="#4d6e1f">Pro: native batch + worktree + audit flow</text>
+  <text x="305" y="700" text-anchor="middle" class="t" fill="#4d6e1f">Con: Agent Hive is host-specific to OpenCode/Copilot paths</text>
+
+  <rect x="630" y="108" width="490" height="700" rx="22" ry="22" fill="#e4f3ee" stroke="#239673" stroke-dasharray="7 7" class="box" />
+  <text x="875" y="156" text-anchor="middle" class="h" fill="#0f5d4f">Setup B: Claude Code</text>
+  <text x="875" y="188" text-anchor="middle" class="t" fill="#136b5a">Village + subagents + AGENTS.md</text>
+
+  <rect x="656" y="228" width="438" height="70" rx="16" ry="16" fill="#dff0ea" stroke="#0f8a74" class="box" />
+  <text x="875" y="268" text-anchor="middle" class="h" fill="#0f5d4f">Beads Village (MCP)</text>
+  <text x="875" y="292" text-anchor="middle" class="t" fill="#136b5a">lock + mail + claim + shared coordination</text>
+
+  <rect x="656" y="318" width="438" height="70" rx="16" ry="16" fill="#e6efdd" stroke="#799b42" class="box" />
+  <text x="875" y="358" text-anchor="middle" class="h" fill="#45631e">Tilth (MCP)</text>
+  <text x="875" y="382" text-anchor="middle" class="t" fill="#557929">AST + outline + edit anchors</text>
+
+  <rect x="656" y="406" width="438" height="82" rx="16" ry="16" fill="#efede7" stroke="#8c8477" class="box" />
+  <text x="875" y="444" text-anchor="middle" class="h" fill="#514b45">AGENTS.md + .claude/skills/</text>
+  <text x="875" y="474" text-anchor="middle" class="t" fill="#625c55">encode workflow + review + TDD/debug conventions</text>
+
+  <rect x="656" y="510" width="208" height="62" rx="14" ry="14" fill="#f9e6ef" stroke="#cc5d82" class="box" />
+  <text x="760" y="548" text-anchor="middle" class="t" fill="#9c2c57">Linear MCP</text>
+
+  <rect x="886" y="510" width="208" height="62" rx="14" ry="14" fill="#f7e7df" stroke="#bc6c25" class="box" />
+  <text x="990" y="548" text-anchor="middle" class="t" fill="#9a4b10">NotebookLM MCP</text>
+
+  <rect x="656" y="596" width="438" height="118" rx="16" ry="16" fill="#eef7df" stroke="#86a64f" class="box" />
+  <text x="875" y="636" text-anchor="middle" class="t" fill="#4d6e1f">Pro: native Claude Code experience</text>
+  <text x="875" y="668" text-anchor="middle" class="t" fill="#4d6e1f">Pro: subagents + same MCP core stack</text>
+  <text x="875" y="700" text-anchor="middle" class="t" fill="#4d6e1f">Con: Hive automation is encoded by convention, not plugin-native</text>
+
+  <rect x="86" y="836" width="1008" height="50" rx="16" ry="16" fill="#f4ead8" stroke="#b88a39" class="box" />
+  <text x="590" y="868" text-anchor="middle" class="h" fill="#7a4f11">Recommendation: one shared stack, multiple clients. OpenCode users get full Hive; Claude Code users keep the same MCP core.</text>
+</svg>

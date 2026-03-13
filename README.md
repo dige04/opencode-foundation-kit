@@ -85,6 +85,30 @@ Claude Code as well.
 Each SVG variant lives in `docs/diagrams/`:
 - [Full-stack architecture](docs/diagrams/full-stack-native.svg)
 - [Team workflow](docs/diagrams/team-workflow-stack.svg)
+- [Client compatibility](docs/diagrams/client-modes.svg)
+
+---
+
+## Client Compatibility
+
+![Foundation Kit client compatibility](docs/diagrams/client-modes.svg)
+
+Short version:
+
+- `Beads`, `Beads Village`, `Tilth`, `Linear`, and `NotebookLM` form the shared
+  client-agnostic core
+- `Agent Hive` is OpenCode-native and does not run as a Claude Code MCP server
+- Claude Code can still use the same core stack through MCP plus `AGENTS.md`,
+  subagents, and optional `.claude/skills/`
+
+Recommended team model:
+
+- builders who prefer `OpenCode` use the full native Hive path
+- builders who prefer `Claude Code` use the same MCP core stack with Claude
+  subagents
+- everyone still shares the same Git-backed task, lock, mail, and docs state
+
+For the full explanation, use `docs/client-compatibility.md`.
 
 ---
 

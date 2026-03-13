@@ -15,6 +15,15 @@
 - Git hosting platform: code review and release governance
 - `docs/`: durable documentation source of truth
 
+## Client Hosts
+
+- OpenCode is the native host for the full stack, including the `opencode-hive`
+  plugin
+- Claude Code can host the MCP-based layers, but not the Hive plugin itself
+- GitHub Copilot has a separate Hive path through the VS Code extension model
+
+The architecture stays shared even when the client host changes.
+
 ## OpenCode Boundary
 
 Use OpenCode as:
@@ -27,6 +36,8 @@ Do not use OpenCode as:
 - a replacement for Hive approval and tracking
 - a replacement for Beads execution state when the team uses Beads-first flow
 - a replacement for NotebookLM, Linear, or Figma
+
+Do not describe Agent Hive as a universal MCP server. It is host-specific.
 
 Do not use Beads Village as:
 - a replacement for Beads core graph memory
